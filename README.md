@@ -18,7 +18,7 @@ $ver = new CaptchaVerifier();
 		echo "bad";
 	}
 ```
-or
+or (compatible with multiple CAPTCHA frames):
 ```php
 $ver = new CaptchaVerifier();
 $ver->parseFromPostBody($_POST);

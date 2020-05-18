@@ -24,7 +24,7 @@ class CaptchaVerifier {
     var $captchas;
 	
 	function __construct(){
-		$captchas = array();
+		$this->captchas = array();
 	}
 	
 	function parseFromPostBody($postbody){

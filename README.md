@@ -20,7 +20,7 @@ $ver = new CaptchaVerifier("https://example.org/test"); //ENTER DOMAIN + PATH OF
 ```
 or (compatible with multiple CAPTCHA frames):
 ```php
-$ver = new CaptchaVerifier();
+$ver = new CaptchaVerifier("https://example.org/test");
 $ver->parseFromPostBody($_POST);
 $firstCaptchaState = $ver->captchas[0];
 if($firstCaptchaState->solved){

@@ -11,7 +11,7 @@ echo $cc->initialize();
 ### Checking Captcha Entry Validity
 Assuming there is only one captcha and the forms arguments point towards the script using a POST request:
 ```php
-$ver = new CaptchaVerifier();
+$ver = new CaptchaVerifier("https://example.org/test"); //ENTER DOMAIN + PATH OF FORM WITH CAPTCHA HERE
 	if($ver->check($_POST["ctec_captcha_vc_0"],$_POST["ctec_captcha_txt_0"])){
 		echo "good";
 	}else{

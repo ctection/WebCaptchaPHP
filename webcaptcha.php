@@ -22,14 +22,16 @@ class CaptchaState{
 class CaptchaVerifier {
 
     var $captchas;
+    var $c_uri;
 	
-	function __construct(){
+	function __construct($allowed_uri){
 		$this->captchas = array();
+		$this->c_uri = $allowed_uri;
 	}
 	
 	function parseFromPostBody($postbody){
 		for($i=0;isset($postbody["ctec_captcha_vc_".$i]);$i++){
-			$api_ret = json_decode(file_get_contents("https://ctection.com/api/v1/check_captcha.php?c=".urlencode($_POST["ctec_captcha_txt_".$i])."&uid=".urlencode($_POST["ctec_captcha_vc_".$i])),true);
+			$api_ret = json_decode(file_get_contents("https://ctection.com/api/v1/check_captcha.php?c=".urlencode($_POST["ctec_captcha_txt_".$i])."&uid=".urlencode($_POST["ctec_captcha_vc_".$i])."&uri=".urlencode($this->c_uri)),true);
 			if(isset($api_ret["valid"])){
 				if($api_ret["valid"]){
 					array_push($this->captchas, new CaptchaState($postbody["ctec_captcha_vc_".$i],true));

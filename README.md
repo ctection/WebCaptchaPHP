@@ -12,7 +12,7 @@ echo $cc->initialize();
 Assuming there is only one captcha and the forms arguments point towards the script using a POST request:
 ```php
 $ver = new CaptchaVerifier();
-	if($ver->check($_POST[""],$_POST[""])){
+	if($ver->check($_POST["ctec_captcha_vc_0"],$_POST["ctec_captcha_txt_0"])){
 		echo "good";
 	}else{
 		echo "bad";
